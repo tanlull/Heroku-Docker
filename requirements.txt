@@ -1,0 +1,6 @@
+thaiaddress
+starlette==0.13.6
+fastapi
+uvicorn
+pymessenger
+python-decouple

@@ -1,0 +1,28 @@
+#------- Deploy on Local --------
+
+#Build image
+docker build -t drtan/heroku-docker .
+
+##Run
+docker run -d --name heroku-docker  -p 80:8080 drtan/heroku-docker
+
+## Test : 
+127.0.0.1?addr=นายปรายุ้ด จันทร์กะเพรา 099-999-9999 25/25 ถ.พุทธมณฑล สาย 4 ต. ศาลายา อ.พุทธมณฑล จ.นครปฐม 73170
+
+## Documnets:
+http://127.0.0.1/docs
+
+
+#------- Deploy on Heroku --------
+heroku login
+heroku container:login
+heroku create thai-address-docker
+heroku container:push web -a thai-address-docker
+heroku container:release web -a thai-address-docker
+
+## Test 
+https://thai-address-docker.herokuapp.com/docs
+
+
+## Test by get: 
+https://thai-address-docker.herokuapp.com?addr=นายปรายุ้ด จันทร์กะเพรา 099-999-9999 25/25 ถ.พุทธมณฑล สาย 4 ต. ศาลายา อ.พุทธมณฑล จ.นครปฐม 73170
